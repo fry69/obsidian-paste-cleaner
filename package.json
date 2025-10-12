@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-paste-cleaner",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"description": "Obsidian plugin for removing unwanted strings from pasted content.",
 	"main": "main.js",
 	"scripts": {
