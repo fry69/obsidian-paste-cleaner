@@ -1,6 +1,10 @@
+### v0.2.4 (unreleased)
+
+- Add acknowledgments and license section to README
+
 ### v0.2.3
 
-- rename plugin id to paste-cleaner
+- Rename plugin id to paste-cleaner
 
 ### v0.2.2
 

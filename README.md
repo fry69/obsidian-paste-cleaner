@@ -124,3 +124,11 @@ Run ESLint:
 npm install -g eslint
 eslint main.ts
 ```
+
+## Acknowledgments
+
+An early draft of this plugin was based on [obsidian-paste-transform](https://github.com/rekby/obsidian-paste-transform) by [Timofey Koolin](https://github.com/rekby) (Apache-2.0 license), but was completely rewritten to focus on pattern removal rather than transformation.
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
