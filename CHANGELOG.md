@@ -6,6 +6,7 @@ README.md changes:
 - Clarify local installation instructions
 - Remove unnecessary installation instructions
 - Hotlink to Obsidian plugin availability PR
+- Mention building from source as installation option
 
 ### v0.2.3
 

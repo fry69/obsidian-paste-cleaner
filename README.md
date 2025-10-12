@@ -7,6 +7,8 @@ Automatically removes unwanted strings from pasted content in Obsidian.
 > [!NOTE]
 > Until [available](https://github.com/obsidianmd/obsidian-releases/pull/8137) in the Obsidian community plugins list, install manually:
 >
+> Either get the latest release from the [Releases](https://github.com/fry69/obsidian-paste-cleaner/releases) page, or build from source (see [Development](#development)).
+>
 > Set `VAULT_PATH` to your Obsidian vault path, then run:
 > ```shell
 > mkdir -p $(VAULT_PATH)/.obsidian/plugins/paste-cleaner
