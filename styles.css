@@ -1,8 +1,71 @@
 /*
+ * Obsidian Paste Cleaner Plugin Styles
+ */
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+/* Grid header styling */
+.paste-cleaner-header {
+	font-weight: 600;
+	font-size: 0.9em;
+	color: var(--text-muted);
+	padding-bottom: 8px;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
 
-If your plugin does not need CSS, delete this file.
+/* Grid cells - remove the default Setting padding/margins */
+.paste-cleaner-cell {
+	padding: 4px 0;
+}
 
-*/
+.paste-cleaner-cell .setting-item {
+	padding: 0;
+	border: none;
+	background: none;
+}
+
+.paste-cleaner-cell .setting-item-info {
+	display: none; /* Hide the name/description area */
+}
+
+.paste-cleaner-cell .setting-item-control {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+}
+
+/* Pattern input styling */
+.paste-cleaner-input {
+	width: 100%;
+	padding: 6px 8px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	background-color: var(--background-primary);
+	color: var(--text-normal);
+	font-family: var(--font-monospace);
+	font-size: 0.9em;
+}
+
+.paste-cleaner-input:focus {
+	border-color: var(--interactive-accent);
+	outline: none;
+}
+
+/* Clear link styling */
+.paste-cleaner-clear-link {
+	color: var(--interactive-accent);
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: 500;
+}
+
+.paste-cleaner-clear-link:hover {
+	color: var(--interactive-accent-hover);
+	text-decoration: underline;
+}
+
+/* Test area textareas */
+.setting-item-control textarea {
+	min-height: 80px;
+	resize: vertical;
+	font-family: var(--font-monospace);
+}

@@ -1,9 +1,9 @@
 {
 	"id": "obsidian-paste-cleaner",
-	"name": "Obsidian Paste Cleaner",
-	"version": "1.0.0",
+	"name": "Paste Cleaner",
+	"version": "0.1.0",
 	"minAppVersion": "0.15.0",
-	"description": "Obsidian plugin for cleaning pasted content from unwanted strings.",
+	"description": "Clean pasted content from unwanted strings.",
 	"author": "fry69",
 	"authorUrl": "https://bsky.app/profile/fry69.dev",
 	"isDesktopOnly": false

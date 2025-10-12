@@ -1,7 +1,7 @@
 {
 	"name": "obsidian-paste-cleaner",
-	"version": "1.0.0",
-	"description": "Obsidian plugin for cleaning pasted content from unwanted strings ",
+	"version": "0.1.0",
+	"description": "Obsidian plugin for cleaning pasted content from unwanted strings.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",

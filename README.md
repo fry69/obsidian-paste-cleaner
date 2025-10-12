@@ -1,94 +1,126 @@
-# Obsidian Sample Plugin
+# Obsidian Paste Cleaner
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+Automatically removes unwanted strings from pasted content in Obsidian.
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+## Installation
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+1. Enable the plugin in Obsidian settings
+2. Configure removal rules in Settings → Paste Cleaner
+3. Paste content anywhere in Obsidian
 
-## First time developing plugins?
+## Usage
 
-Quick starting guide for new plugin devs:
+### Adding Rules
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+1. Go to Settings → Paste Cleaner
+2. Click "Add new rule"
+3. Enter the text or pattern to remove
+4. Enable "Regex" toggle for regular expressions, leave off for literal text
+5. Delete rules using the trash icon
 
-## Releasing new releases
+### Rule Types
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+**Literal text** (Regex OFF):
+- Matches exact text
+- Special characters are automatically escaped
+- Example: `?utm_source=chatgpt.com`
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+**Regular expressions** (Regex ON):
+- Uses JavaScript RegExp syntax with global matching
+- All matched patterns are removed, unmatched text is preserved
+- Example: `[?&](utm_medium|utm_campaign|fbclid)=[^&\s]*`
+  - Removes: tracking parameters like `&utm_medium=social` or `?fbclid=abc123`
+  - Preserves: URLs and other text not matching the pattern
 
-## Adding your plugin to the community plugin list
+### Testing Rules
 
-- Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+Use the test area in settings to preview rule behavior before applying them to actual pastes.
 
-## How to use
+## Technical Details
 
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+- Processes `text/plain` clipboard content
+- Applies rules in order from top to bottom
+- Removes all occurrences of each pattern
+- Works with multi-format clipboards (text/html, text/plain, etc.)
 
-## Manually installing the plugin
+## Example
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+**Rules:**
+1. Literal: `?utm_source=chatgpt.com` (Regex OFF)
+2. Regex: `[?&](utm_medium|utm_campaign|utm_content|fbclid|gclid)=[^&\s]*` (Regex ON)
 
-## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- To use eslint with this project, make sure to install eslint from terminal:
-  - `npm install -g eslint`
-- To use eslint to analyze this project use this command:
-  - `eslint main.ts`
-  - eslint will then create a report with suggestions for code improvement by file and line number.
-- If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder:
-  - `eslint ./src/`
-
-## Funding URL
-
-You can include funding URLs where people who use your plugin can financially support it.
-
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
-
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
+**Input:**
+```
+https://example.com?utm_source=chatgpt.com
+https://example.com?fbclid=this
+https://example.com?test&gclid=asdfasdf text
 ```
 
-If you have multiple URLs, you can also do:
-
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
+**Output:**
+```
+https://example.com
+https://example.com
+https://example.com?test text
 ```
 
-## API Documentation
+## Troubleshooting
 
-See https://github.com/obsidianmd/obsidian-api
+**Plugin not working:**
+- Enable debug mode and check browser console (Ctrl+Shift+I / Cmd+Option+I)
+- Verify rules in the test area
+- Ensure regex patterns are valid
+- Reload Obsidian (Ctrl+R / Cmd+R)
+
+**Nothing removed:**
+- Check that pattern matches the text exactly
+- Verify Regex toggle is set correctly
+- Test in the test area first
+- Check for leading/trailing whitespace in rules
+
+**Reordering rules:**
+- Delete and recreate rules in desired order
+- Rules apply top to bottom
+
+## Development
+
+### Setup
+
+```bash
+npm install
+```
+
+### Build
+
+```bash
+npm run build
+```
+
+### Watch Mode
+
+```bash
+npm run dev
+```
+
+### Manual Installation
+
+Copy `main.js`, `styles.css`, `manifest.json` to:
+```
+<vault>/.obsidian/plugins/obsidian-paste-cleaner/
+```
+
+### Release Process
+
+1. Update version in `manifest.json` and `minAppVersion`
+2. Update `versions.json` with version mapping
+3. Create GitHub release (tag = version number, no `v` prefix)
+4. Attach `manifest.json`, `main.js`, `styles.css` to release
+
+Or use: `npm version patch|minor|major`
+
+### Code Quality
+
+Run ESLint:
+```bash
+npm install -g eslint
+eslint main.ts
+```
