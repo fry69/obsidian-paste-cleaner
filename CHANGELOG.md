@@ -1,8 +1,10 @@
 ### v0.2.4 (unreleased)
 
-- Add acknowledgments and license section to README
-- Remove leftover "obsidian-" prefix in README
-- Clarify local installation instructions in README
+README.md changes:
+- Add acknowledgments and license section
+- Remove leftover "obsidian-" prefix
+- Clarify local installation instructions
+- Remove unnecessary installation instructions
 
 ### v0.2.3
 

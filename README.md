@@ -13,10 +13,6 @@ Automatically removes unwanted strings from pasted content in Obsidian.
 > cp manifest.json main.js styles.css $(VAULT_PATH)/.obsidian/plugins/paste-cleaner/
 > ```
 
-1. Enable the plugin in Obsidian settings
-2. Configure removal rules in Settings → Paste Cleaner
-3. Paste content anywhere in Obsidian
-
 ## Usage
 
 ### Adding Rules
