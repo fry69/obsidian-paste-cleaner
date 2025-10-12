@@ -5,6 +5,7 @@ README.md changes:
 - Remove leftover "obsidian-" prefix
 - Clarify local installation instructions
 - Remove unnecessary installation instructions
+- Hotlink to Obsidian plugin availability PR
 
 ### v0.2.3
 

@@ -5,7 +5,7 @@ Automatically removes unwanted strings from pasted content in Obsidian.
 ## Installation
 
 > [!NOTE]
-> Until available in the Obsidian community plugins list, install manually:
+> Until [available](https://github.com/obsidianmd/obsidian-releases/pull/8137) in the Obsidian community plugins list, install manually:
 >
 > Set `VAULT_PATH` to your Obsidian vault path, then run:
 > ```shell
