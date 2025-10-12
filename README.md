@@ -105,7 +105,7 @@ npm run dev
 
 Copy `main.js`, `styles.css`, `manifest.json` to:
 ```
-<vault>/.obsidian/plugins/obsidian-paste-cleaner/
+<vault>/.obsidian/plugins/paste-cleaner/
 ```
 
 ### Release Process

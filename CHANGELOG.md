@@ -1,6 +1,7 @@
 ### v0.2.4 (unreleased)
 
 - Add acknowledgments and license section to README
+- Remove leftover "obsidian-" prefix in README
 
 ### v0.2.3
 
