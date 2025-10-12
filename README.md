@@ -4,6 +4,15 @@ Automatically removes unwanted strings from pasted content in Obsidian.
 
 ## Installation
 
+> [!NOTE]
+> Until available in the Obsidian community plugins list, install manually:
+>
+> Set `VAULT_PATH` to your Obsidian vault path, then run:
+> ```shell
+> mkdir -p $(VAULT_PATH)/.obsidian/plugins/paste-cleaner
+> cp manifest.json main.js styles.css $(VAULT_PATH)/.obsidian/plugins/paste-cleaner/
+> ```
+
 1. Enable the plugin in Obsidian settings
 2. Configure removal rules in Settings → Paste Cleaner
 3. Paste content anywhere in Obsidian
@@ -95,17 +104,12 @@ npm install
 npm run build
 ```
 
-### Watch Mode
+### Copy to Vault
 
-```bash
-npm run dev
-```
-
-### Manual Installation
-
-Copy `main.js`, `styles.css`, `manifest.json` to:
-```
-<vault>/.obsidian/plugins/paste-cleaner/
+Set `VAULT_PATH` to your Obsidian vault path, then run:
+```shell
+mkdir -p $(VAULT_PATH)/.obsidian/plugins/paste-cleaner
+cp manifest.json main.js styles.css $(VAULT_PATH)/.obsidian/plugins/paste-cleaner/
 ```
 
 ### Release Process

@@ -2,6 +2,7 @@
 
 - Add acknowledgments and license section to README
 - Remove leftover "obsidian-" prefix in README
+- Clarify local installation instructions in README
 
 ### v0.2.3
 
