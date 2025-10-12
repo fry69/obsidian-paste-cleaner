@@ -1,3 +1,11 @@
+### v0.2.3
+
+- rename plugin id to paste-cleaner
+
+### v0.2.2
+
+- GitHub worklow release
+
 ### v0.2.1
 
 - Update tag line wording
