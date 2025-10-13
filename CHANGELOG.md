@@ -1,3 +1,7 @@
+### v0.2.5 (unreleased)
+
+- update link to PR for Obsidian plugin availability
+
 ### v0.2.4
 
 README.md changes:
