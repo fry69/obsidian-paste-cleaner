@@ -174,13 +174,6 @@ class PasteCleanerSettingsTab extends PluginSettingTab {
 
 		// Create grid container for rules
 		const rulesContainer = containerEl.createDiv("paste-cleaner-rules-grid");
-		rulesContainer.style.cssText = `
-			display: grid;
-			grid-template-columns: 1fr auto auto;
-			gap: 12px;
-			align-items: center;
-			margin: 16px 0;
-		`;
 
 		// Add grid header
 		rulesContainer.createEl("div", {text: "Pattern", cls: "paste-cleaner-header"});
@@ -285,8 +278,7 @@ class PasteCleanerSettingsTab extends PluginSettingTab {
 				// Make textarea larger
 				ta.inputEl.rows = 6;
 				ta.inputEl.cols = 50;
-				ta.inputEl.style.minHeight = "120px";
-				ta.inputEl.style.minWidth = "100%";
+				ta.inputEl.addClass("paste-cleaner-test-textarea");
 
 				ta.onChange((value) => {
 					// Save the test input value so it persists across display() calls
@@ -326,8 +318,7 @@ class PasteCleanerSettingsTab extends PluginSettingTab {
 				// Make textarea larger
 				ta.inputEl.rows = 6;
 				ta.inputEl.cols = 50;
-				ta.inputEl.style.minHeight = "120px";
-				ta.inputEl.style.minWidth = "100%";
+				ta.inputEl.addClass("paste-cleaner-test-textarea");
 
 				// Update the result after creating the textarea
 				handleChanges();

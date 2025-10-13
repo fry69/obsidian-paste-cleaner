@@ -63,9 +63,19 @@
 	text-decoration: underline;
 }
 
+/* Rules grid container */
+.paste-cleaner-rules-grid {
+	display: grid;
+	grid-template-columns: 1fr auto auto;
+	gap: 12px;
+	align-items: center;
+	margin: 16px 0;
+}
+
 /* Test area textareas */
-.setting-item-control textarea {
-	min-height: 80px;
+.paste-cleaner-test-textarea {
+	min-height: 120px;
+	min-width: 100%;
 	resize: vertical;
 	font-family: var(--font-monospace);
 }
