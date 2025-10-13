@@ -1,4 +1,4 @@
-### v0.2.4 (unreleased)
+### v0.2.4
 
 README.md changes:
 - Add acknowledgments and license section
@@ -7,6 +7,7 @@ README.md changes:
 - Remove unnecessary installation instructions
 - Hotlink to Obsidian plugin availability PR
 - Mention building from source as installation option
+- Remove inline CSS
 
 ### v0.2.3
 
