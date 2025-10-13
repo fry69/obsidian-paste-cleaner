@@ -1,6 +1,7 @@
 ### v0.2.5 (unreleased)
 
 - update link to PR for Obsidian plugin availability
+- add missing releases to versions.json
 
 ### v0.2.4
 
