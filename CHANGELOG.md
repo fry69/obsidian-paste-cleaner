@@ -2,6 +2,7 @@
 
 - update link to PR for Obsidian plugin availability
 - add missing releases to versions.json
+- fix version-bump.mjs
 
 ### v0.2.4
 
