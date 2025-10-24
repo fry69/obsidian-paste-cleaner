@@ -394,7 +394,7 @@ async function main() {
   // Run tests
   log.blank();
   log.step("Running checks...");
-  if (!(await run("npm run check"))) {
+  if (!(await run("npm run lint"))) {
     exitError("Checks failed. Please fix issues before releasing.");
   }
   log.success("All checks passed!");
