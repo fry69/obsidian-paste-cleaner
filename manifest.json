@@ -1,10 +1,10 @@
 {
-  "id": "paste-cleaner",
-  "name": "Paste Cleaner",
-  "version": "0.2.4",
-  "minAppVersion": "1.9.14",
-  "description": "Cleans unwanted strings from pasted content.",
-  "author": "fry69",
-  "authorUrl": "https://bsky.app/profile/fry69.dev",
-  "isDesktopOnly": false
+	"id": "paste-cleaner",
+	"name": "Paste Cleaner",
+	"version": "0.3.0",
+	"minAppVersion": "1.9.14",
+	"description": "Cleans unwanted strings from pasted content.",
+	"author": "fry69",
+	"authorUrl": "https://bsky.app/profile/fry69.dev",
+	"isDesktopOnly": false
 }

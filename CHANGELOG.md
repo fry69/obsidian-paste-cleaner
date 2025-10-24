@@ -1,6 +1,8 @@
 # Changelog
 
-## (unreleased)
+## [Unreleased]
+
+## [0.3.0] - 2025-10-24
 
 - update link to PR for Obsidian plugin availability
 - add missing releases to versions.json
