@@ -3,7 +3,7 @@
 ## Project overview
 
 - Target: Obsidian Community Plugin (TypeScript → bundled JavaScript).
-- Entry point: `main.ts` compiled to `main.js` and loaded by Obsidian.
+- Entry point: `src/main.ts` compiled to `main.js` and loaded by Obsidian.
 - Required release artifacts: `main.js`, `manifest.json`, and optional `styles.css`.
 
 ## Environment & tooling
@@ -17,28 +17,21 @@
 
 ### Install
 
-```bash
+```shell
 npm install
-```
-
-### Dev (watch)
-
-```bash
-npm run dev
 ```
 
 ### Production build
 
-```bash
+```shell
 npm run build
 ```
 
-## Linting
+### Comprehensive pre-commit checks (formatting, linting, dead code, type checking)
 
-- To use eslint install eslint from terminal: `npm install -g eslint`
-- To use eslint to analyze this project use this command: `eslint main.ts`
-- eslint will then create a report with suggestions for code improvement by file and line number.
-- If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder: `eslint ./src/`
+```shell
+npm run check
+```
 
 ## File & folder conventions
 
@@ -66,19 +59,19 @@ npm run build
 
 ## Manifest rules (`manifest.json`)
 
-- Must include (non-exhaustive):  
-  - `id` (plugin ID; for local dev it should match the folder name)  
-  - `name`  
-  - `version` (Semantic Versioning `x.y.z`)  
-  - `minAppVersion`  
-  - `description`  
-  - `isDesktopOnly` (boolean)  
+- Must include (non-exhaustive):
+  - `id` (plugin ID; for local dev it should match the folder name)
+  - `name`
+  - `version` (Semantic Versioning `x.y.z`)
+  - `minAppVersion`
+  - `description`
+  - `isDesktopOnly` (boolean)
   - Optional: `author`, `authorUrl`, `fundingUrl` (string or map)
 - Never change `id` after release. Treat it as stable API.
 - Keep `minAppVersion` accurate when using newer APIs.
 - Canonical requirements are coded here: https://github.com/obsidianmd/obsidian-releases/blob/master/.github/workflows/validate-plugin-entry.yml
 
-## Testing
+## Testing (manual)
 
 - Manual install for testing: copy `main.js`, `manifest.json`, `styles.css` (if any) to:
   ```
@@ -236,7 +229,7 @@ this.registerInterval(window.setInterval(() => { /* ... */ }, 1000));
 
 ## Troubleshooting
 
-- Plugin doesn't load after build: ensure `main.js` and `manifest.json` are at the top level of the plugin folder under `<Vault>/.obsidian/plugins/<plugin-id>/`. 
+- Plugin doesn't load after build: ensure `main.js` and `manifest.json` are at the top level of the plugin folder under `<Vault>/.obsidian/plugins/<plugin-id>/`.
 - Build issues: if `main.js` is missing, run `npm run build` or `npm run dev` to compile your TypeScript source code.
 - Commands not appearing: verify `addCommand` runs after `onload` and IDs are unique.
 - Settings not persisting: ensure `loadData`/`saveData` are awaited and you re-render the UI after changes.
@@ -244,8 +237,14 @@ this.registerInterval(window.setInterval(() => { /* ... */ }, 1000));
 
 ## References
 
-- Obsidian sample plugin: https://github.com/obsidianmd/obsidian-sample-plugin
 - API documentation: https://docs.obsidian.md
 - Developer policies: https://docs.obsidian.md/Developer+policies
 - Plugin guidelines: https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines
 - Style guide: https://help.obsidian.md/style-guide
+
+- Guide: Settings https://docs.obsidian.md/Plugins/User+interface/Settings
+
+- Reference: CSS Styling https://docs.obsidian.md/Reference/CSS+variables/About+styling
+- Reference: CSS variables https://docs.obsidian.md/Reference/CSS+variables/CSS+variables
+- Reference: manifest.json https://docs.obsidian.md/Reference/Manifest
+- Reference: versions.json https://docs.obsidian.md/Reference/Versions

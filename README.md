@@ -35,7 +35,7 @@ Automatically removes unwanted strings from pasted content in Obsidian.
 **Regular expressions** (Regex ON):
 - Uses JavaScript RegExp syntax with global matching
 - All matched patterns are removed, unmatched text is preserved
-- Example: `[?&](utm_medium|utm_campaign|fbclid)=[^&\s]*`
+- Example: `[?&](utm_medium|utm_campaign|fbclid)=[^&]*`
   - Removes: tracking parameters like `&utm_medium=social` or `?fbclid=abc123`
   - Preserves: URLs and other text not matching the pattern
 
@@ -54,7 +54,7 @@ Use the test area in settings to preview rule behavior before applying them to a
 
 **Rules:**
 1. Literal: `?utm_source=chatgpt.com` (Regex OFF)
-2. Regex: `[?&](utm_medium|utm_campaign|utm_content|fbclid|gclid)=[^&\s]*` (Regex ON)
+2. Regex: `[?&](utm_medium|utm_campaign|utm_content|fbclid|gclid)=[^&]*` (Regex ON)
 
 **Input:**
 ```
@@ -112,19 +112,34 @@ cp manifest.json main.js styles.css $(VAULT_PATH)/.obsidian/plugins/paste-cleane
 
 ### Release Process
 
-1. Update version in `manifest.json` and `minAppVersion`
-2. Update `versions.json` with version mapping
-3. Create GitHub release (tag = version number, no `v` prefix)
-4. Attach `manifest.json`, `main.js`, `styles.css` to release
+The release process is automated via a script and GitHub Actions.
 
-Or use: `npm version patch|minor|major`
+1.  **Run the release script:**
+    This script bumps the version in all necessary files, updates the `CHANGELOG.md`, and creates a git commit and tag.
+    ```bash
+    # For a patch release
+    node tools/release.ts patch
+
+    # For a specific version
+    node tools/release.ts 1.2.3
+    ```
+    The script will then push the commit and tag to GitHub. For pre-releases, use keywords like `prerelease` from a non-default branch.
+
+2.  **GitHub Release Creation:**
+    Pushing a tag to GitHub triggers a workflow that builds the plugin and creates a corresponding release with the necessary artifacts (`main.js`, `manifest.json`, `styles.css`).
 
 ### Code Quality
 
-Run ESLint:
+This project uses:
+- [Obsidian ESLint plugin](https://github.com/obsidianmd/eslint-plugin) for linting
+- [Prettier](https://prettier.io/) for code formatting
+- [Knip](https://knip.dev/) for unused code detection
+- [Typos](https://github.com/crate-ci/typos) for spell checking (needs to be installed globally)
+
+Use the following command to run all checks:
+
 ```bash
-npm install -g eslint
-eslint main.ts
+npm run check
 ```
 
 ## Acknowledgments

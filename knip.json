@@ -1,0 +1,5 @@
+{
+  "entry": ["main.{js,ts}", "src/main.{js,ts}", "tools/**/*.ts"],
+  "project": ["**/*.{js,ts}"],
+  "ignoreBinaries": ["typos"]
+}

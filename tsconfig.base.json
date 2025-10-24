@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["DOM","ES2022"],
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "noEmit": true,
+    "allowJs": true,
+    "allowImportingTsExtensions": true,
+    "noImplicitAny": true,
+    "importHelpers": true,
+    "isolatedModules": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+  }
+}

@@ -4,78 +4,78 @@
 
 /* Grid header styling */
 .paste-cleaner-header {
-	font-weight: 600;
-	font-size: 0.9em;
-	color: var(--text-muted);
-	padding-bottom: 8px;
-	border-bottom: 1px solid var(--background-modifier-border);
+  font-weight: 600;
+  font-size: 0.9em;
+  color: var(--text-muted);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--background-modifier-border);
 }
 
 /* Grid cells - remove the default Setting padding/margins */
 .paste-cleaner-cell {
-	padding: 4px 0;
+  padding: 4px 0;
 }
 
 .paste-cleaner-cell .setting-item {
-	padding: 0;
-	border: none;
-	background: none;
+  padding: 0;
+  border: none;
+  background: none;
 }
 
 .paste-cleaner-cell .setting-item-info {
-	display: none; /* Hide the name/description area */
+  display: none; /* Hide the name/description area */
 }
 
 .paste-cleaner-cell .setting-item-control {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
 }
 
 /* Pattern input styling */
 .paste-cleaner-input {
-	width: 100%;
-	padding: 6px 8px;
-	border: 1px solid var(--background-modifier-border);
-	border-radius: 4px;
-	background-color: var(--background-primary);
-	color: var(--text-normal);
-	font-family: var(--font-monospace);
-	font-size: 0.9em;
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+  font-family: var(--font-monospace);
+  font-size: 0.9em;
 }
 
 .paste-cleaner-input:focus {
-	border-color: var(--interactive-accent);
-	outline: none;
+  border-color: var(--interactive-accent);
+  outline: none;
 }
 
 /* Clear link styling */
 .paste-cleaner-clear-link {
-	color: var(--interactive-accent);
-	text-decoration: none;
-	cursor: pointer;
-	font-weight: 500;
+  color: var(--interactive-accent);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
 }
 
 .paste-cleaner-clear-link:hover {
-	color: var(--interactive-accent-hover);
-	text-decoration: underline;
+  color: var(--interactive-accent-hover);
+  text-decoration: underline;
 }
 
 /* Rules grid container */
 .paste-cleaner-rules-grid {
-	display: grid;
-	grid-template-columns: 1fr auto auto;
-	gap: 12px;
-	align-items: center;
-	margin: 16px 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  margin: 16px 0;
 }
 
 /* Test area textareas */
 .paste-cleaner-test-textarea {
-	min-height: 120px;
-	min-width: 100%;
-	resize: vertical;
-	font-family: var(--font-monospace);
+  min-height: 120px;
+  min-width: 100%;
+  resize: vertical;
+  font-family: var(--font-monospace);
 }
