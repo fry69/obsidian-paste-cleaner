@@ -16,13 +16,6 @@ jobs:
       matrix:
         node: ["22", "24"]
         os: [macOS-latest, ubuntu-latest]
-        include:
-          - os: ubuntu-latest
-            cache_path: ~/.cache/deno/
-          - os: macos-latest
-            cache_path: ~/Library/Caches/deno/
-          # - os: windows-latest
-          #   cache_path: ~\AppData\Local\deno\
 
     steps:
       - name: Checkout repo
