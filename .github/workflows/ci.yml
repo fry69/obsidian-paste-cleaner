@@ -21,8 +21,8 @@ jobs:
             cache_path: ~/.cache/deno/
           - os: macos-latest
             cache_path: ~/Library/Caches/deno/
-          - os: windows-latest
-            cache_path: ~\AppData\Local\deno\
+          # - os: windows-latest
+          #   cache_path: ~\AppData\Local\deno\
 
     steps:
       - name: Checkout repo
